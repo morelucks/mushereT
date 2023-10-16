@@ -1,6 +1,7 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 from django.core.exceptions import ValidationError
+
 
 from .models import User
 
@@ -20,4 +21,7 @@ class RegistrationForm(UserCreationForm):
             raise ValidationError("This email address is already registered. Please use a different one.")
         return email
     
-    
+class LoginForm(AuthenticationForm):
+    class Meta:
+        model = User  # Specify the User model
+        fields = ('username', 'password')
