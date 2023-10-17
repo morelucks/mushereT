@@ -1,14 +1,68 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-</head>
-<body>
-    <h2>Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
-</body>
-</html>
+{% extends "accounts/loginTemp.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<br><br>
+
+<section >
+  <br><br>
+<div class="container">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center ">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-dark text-white" style="border-radius: 1rem; width:350px; margin: auto; height: 670px">
+            <div class="card-body p-5 text-center">
+  
+              <div class="mb-md-5 mt-md-4 pb-5">
+                <img src="https://i.postimg.cc/bvgZkkh4/NYSC-LOGO-svg.png" width="130" height="130" class="center z-depth-0 pol" alt="">
+                <p class="con mb-5 blink90" style="color: orange; font-size: 200%; text-align: center; font-weight:900">Hi, Welcome Back</p>
+              <!-- class row for description-->
+              <div class="row d-flex justify-content-center ">
+                <!-- class column -->
+
+              </div>
+                <form action="" method="POST">
+                  {% csrf_token %}
+
+              <div class="form-group">
+                <div class="col-md-12">
+
+                  <h6   style="color: lightsteelblue; font-weight: bold; font-size: 20px ; text-align: left"><label for="username">🕵🏻‍♂️Username</label></h6>
+                  <input type="text" name="username" style="border: 2px solid cyan" placeholder="Fill in Username Here" class="form-control">
+<br>
+                  <h6  style="color: lightsteelblue; font-weight: bold; font-size: 20px; text-align: left"><label for="password">🔐Password</label></h6>
+                  <input type="password" name="password" style="border: 2px solid cyan" placeholder="Fill in Password Here" class="form-control">
+                  </div>
+                  {% comment %} <div class="row justify-content-center">
+                      <input type="submit" value="🔓Login" class="btn btn-warning btn-lg mt-3 font-weight-bold" style=" width: 89%; padding: 10px 32px; ">
+                  </div> {% endcomment %}
+                  <br>
+                  <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                  <br><br>
+
+                  <p style="text-align: left"><a href="" style="color:cyan; background-color:transparent; text-decoration:none"  class=" fw-bold">Forget password?</a></p>
+<br>
+                  <div>
+                    <p class="mb-0">Don't have an account?</p> <p><a href="{% url 'register' %}" class=" fw-bold" style="color:cyan; background-color:transparent; text-decoration:none">Sign Up</a>
+                    </p>
+                  </div>
+                  
+                </div>
+              </div>
+             
+                </form>
+              </div>
+            </div>
+            </div>
+            </div>
+          </div>
+          </div>
+          </div> 
+          </div>
+          
+
+</section>
+{%endblock%}
+
